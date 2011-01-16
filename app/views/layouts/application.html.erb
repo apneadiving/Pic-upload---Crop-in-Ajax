@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AjaxUpload</title>
+  <%= csrf_meta_tag %>
+	<%= stylesheet_link_tag('uploadify') %>
+	<%= stylesheet_link_tag('layout') %>
+
+	<%= yield :head %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+ <%= javascript_include_tag :defaults %>
+  <%= yield :scripts %>
+</html>

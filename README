@@ -1,0 +1,5 @@
+Implementation of Uploadify in Rails3 + crop in Ajax.
+
+Run the seeds and visit http://localhost:3000/profiles/new
+
+(it's NOT a social app so user model is a fake as well as profile)

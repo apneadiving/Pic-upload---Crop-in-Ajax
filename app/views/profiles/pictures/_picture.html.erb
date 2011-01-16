@@ -1,0 +1,34 @@
+<script type="text/javascript" charset="utf-8">
+  var adapter = <%= @adapter || 1 %>;
+	
+	function update_crop(coords) {
+		var rx = 100/coords.w;
+		var ry = 100/coords.h;
+	
+	  $('#preview').css({
+	    width: Math.round(rx * <%= @width %> /adapter) + 'px',
+	    height: Math.round(ry * <%= @height %> /adapter) + 'px',
+	    marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+	    marginTop: '-' + Math.round(ry * coords.y) + 'px'
+	  });
+	  jQuery("#crop_x").val(Math.round(coords.x * adapter));
+	  jQuery("#crop_y").val(Math.round(coords.y * adapter));
+	  jQuery("#crop_w").val(Math.round(coords.w * adapter));
+	  jQuery("#crop_h").val(Math.round(coords.h * adapter));
+	}
+</script>
+
+<%= image_tag @picture_model.picture.url(:original), :id => "cropbox", :class => "crop_pic" %>
+
+<%= form_for @picture_model, :html => { :id => "crop_form"} do |f| %>
+  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+    <%= f.hidden_field attribute, :id => attribute %>
+  <% end %>
+  <p id="crop_trigger"> Click here if you want to crop your pic</p>
+  <p><%= f.submit "Crop", :id => "crop_submit", :style => "display:none" %></p>
+<% end %>
+
+<h4>Preview:</h4>
+<div style="width:100px; height:100px; overflow:hidden">
+  <%= image_tag @picture_model.picture.url(:original), :id => "preview", :class => "crop_pic" %>
+</div>
