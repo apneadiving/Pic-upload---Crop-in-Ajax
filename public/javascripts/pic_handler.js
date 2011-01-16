@@ -1,4 +1,6 @@
-  $(document).ready(function() {
+// ADD THIS: js handlers + all naive uploadify files
+
+ $(document).ready(function() {
     $('#upload').click(function(event){
       event.preventDefault();
 		});       

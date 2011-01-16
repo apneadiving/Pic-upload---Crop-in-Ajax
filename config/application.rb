@@ -38,6 +38,8 @@ module AjaxUpload
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    #ADD THIS
     %w(middleware).each do |dir|
       config.autoload_paths << "#{Rails.root}/app/#{dir}" 
     end

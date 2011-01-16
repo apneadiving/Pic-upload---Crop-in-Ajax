@@ -1,43 +1,8 @@
-<% session_key_name = Rails.application.config.session_options[:key] %>
-
-<% content_for :scripts do%>
-<%= javascript_include_tag 'jquery.uploadify.min', 'swfobject' %>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function() {
-    $('#upload').click(function(event){
-      event.preventDefault();
-		});    
-  $('#upload').uploadify({
-    'uploader'    : '/uploadify/uploadify.swf',
-    'script'      : '/pictures',
-    'multi'        : false,
-    'cancelImg'  : '/images/cancel.png',
-		onComplete : function(event, queueID, fileObj, response, data) { 
-										var dat = eval('(' + response + ')');$.getScript(dat.upload);
-								},
-		'scriptData': {
-					 'format'   : 'json',
-			     'user_id'  : '1'
-		}
-	});    
-  $('#picture_submit').click(function(event){
-    event.preventDefault();
-    $('#upload').uploadifyUpload();
-	});    
-});	  
-</script>
-<% end %>
 <%= form_for @user, :html => {:multipart => true} do |f| %>
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
-	<p id="upload">
-		<%= f.fields_for :picture, @user.picture do |pic| %>
-    	<%= pic.file_field :picture %>
-		<% end %>
-	</p>
-<p>	<%= submit_tag "Add picture", :id => "picture_submit" %>
 </p>
   <p><%= f.submit %></p>
 	

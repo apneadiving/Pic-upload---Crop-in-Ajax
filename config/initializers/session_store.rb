@@ -7,6 +7,7 @@ AjaxUpload::Application.config.session_store :cookie_store, :key => '_ajax-uploa
 # (create the session table with "rails generate session_migration")
 # AjaxUpload::Application.config.session_store :active_record_store
 
+#ADD THIS
 Rails.application.config.middleware.insert_before(
   ActionDispatch::Session::CookieStore,
   FlashSessionCookieMiddleware,

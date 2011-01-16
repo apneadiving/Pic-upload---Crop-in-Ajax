@@ -1,11 +1,15 @@
 Implementation of Uploadify in Rails3 + crop in Ajax.
 
-Run the seeds and visit http://localhost:3000/profiles/new
-
-(it's NOT a social app so user model is a fake as well as profile)
+To make it work:
+- Run the seeds
+- visit http://localhost:3000/profiles/new
 
 Uploadify works well for multiple files handling. 
 - in profiles/_form, set multi to true
 - in pictures controller, remove the test of previous picture existence in create
 
 You'll see that all pictures are stored (I didn't bothered to display them for now)
+
+More info:
+I added 'ADD THIS' in the relevant files
+It's NOT a social app so user model is a fake as well as profile

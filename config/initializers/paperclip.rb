@@ -1,3 +1,4 @@
+#ADD THIS
 # this file provides refactoring for all models using paperclip
 # set your own values in the model to override these
 # these defaults are made for pictures (see convert_options)

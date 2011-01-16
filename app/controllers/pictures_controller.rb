@@ -1,3 +1,6 @@
+#ADD THIS: A SEPARATE CONTROLLER + IT'S VIEWS.
+# for commodity, I added them as a subfolder in profile
+
 require 'mime/types'
 
 class PicturesController < ApplicationController
