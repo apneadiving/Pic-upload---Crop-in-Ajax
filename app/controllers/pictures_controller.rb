@@ -9,7 +9,7 @@ class PicturesController < ApplicationController
 
   def create
     #todo handle error
-    #current_user.picture.delete unless current_user.picture.nil?
+    current_user.picture.delete unless current_user.picture.nil?
     params[:user_id] = current_user.id
     new_params = coerce(params)    
     @picture = Picture.new(new_params[:picture])
