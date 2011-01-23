@@ -8,17 +8,6 @@
     event.preventDefault();
     $('#upload').uploadifyUpload();
 	}); 
-	$('#crop_trigger').live("click", function() {
-		$("#crop_trigger").hide();
-		$("#crop_submit").show();
-	
-	  jQuery('#cropbox').Jcrop({
-	  	onChange: update_crop,
-	  	onSelect: update_crop,
-			aspectRatio: 1,
-			minSize: [100,100]
-		});
-	});
 	
 	$('#crop_submit').live("click", function(event) {
 		event.preventDefault();

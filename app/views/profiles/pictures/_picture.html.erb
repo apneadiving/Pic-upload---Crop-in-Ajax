@@ -24,8 +24,7 @@
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
     <%= f.hidden_field attribute, :id => attribute %>
   <% end %>
-  <p id="crop_trigger"> Click here if you want to crop your pic</p>
-  <p><%= f.submit "Crop", :id => "crop_submit", :style => "display:none" %></p>
+  <p><%= f.submit "Crop", :id => "crop_submit" %></p>
 <% end %>
 
 <h4>Preview:</h4>

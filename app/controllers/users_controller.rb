@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    render :json => ["a", "b", "c", "d"]
   end
 
   def show

@@ -3,6 +3,7 @@ AjaxUpload::Application.routes.draw do
   resources :pictures
   resources :users
   root :to => "users#index"
+  match "/test" => "users#index"
 
   #ADD THIS: remote url
   scope "/remote" do 
