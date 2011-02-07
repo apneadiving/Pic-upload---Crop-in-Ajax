@@ -1,9 +1,10 @@
 == Branch Master:
 
-using: https://github.com/blueimp/jQuery-File-Upload
+Using this great plugin: https://github.com/blueimp/jQuery-File-Upload
 
-Still in heavy dev, works fine only on Mac/chrome now.
+Still needs error handling + delete picture.
 
+Demo here: http://jqupload.heroku.com
 
 == Branch Uploadify:
 
