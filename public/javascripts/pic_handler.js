@@ -1,14 +1,4 @@
-// ADD THIS: js handlers + all naive uploadify files
-
- $(document).ready(function() {
-    $('#upload').click(function(event){
-      event.preventDefault();
-		});       
-  $('#picture_submit').click(function(event){
-    event.preventDefault();
-    $('#upload').uploadifyUpload();
-	}); 
-	
+$(document).ready(function() {
 	$('#crop_submit').live("click", function(event) {
 		event.preventDefault();
 		$.ajax({

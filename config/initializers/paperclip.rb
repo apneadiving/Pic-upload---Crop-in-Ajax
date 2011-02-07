@@ -1,7 +1,7 @@
 #ADD THIS
+# @apneadiving
 # this file provides refactoring for all models using paperclip
 # set your own values in the model to override these
-# these defaults are made for pictures (see convert_options)
 
 Paperclip.interpolates :normalized_name do |attachment, style|
     attachment.instance.normalized_name
@@ -43,7 +43,6 @@ module Paperclip
   module InstanceMethods
     attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
     
-    #beware, works only when there is one kind of attached files/model
     def attachment_name
       self.class.attachment_definitions.first.at(0).to_s
     end
@@ -58,15 +57,13 @@ module Paperclip
 
     def picture_geometry(style = :original)
       @geometry ||= {}
-      #@geometry[style] ||= Paperclip::Geometry.from_file(eval(attachment_name).path(style))
-      @geometry[style] ||= Paperclip::Geometry.from_file(picture.path(style))
+      @geometry[style] ||= Paperclip::Geometry.from_file(eval(attachment_name).path(style))
     end
 
     private
 
     def reprocess_picture
-      #eval(attachment_name).reprocess!
-      picture.reprocess!
+      eval(attachment_name).reprocess!
     end
     
   end

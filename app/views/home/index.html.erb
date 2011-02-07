@@ -1,0 +1,74 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag('jquery.fileupload-ui') %>
+	<%= stylesheet_link_tag "jcrop" %>
+<% end %>
+
+<% content_for :scripts do%>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<%= javascript_include_tag 'jquery.fileupload' %>
+	<%= javascript_include_tag 'jquery.fileupload-ui' %>
+	<%= javascript_include_tag 'jcrop.min' %>
+<script type="text/javascript" charset="utf-8">	
+	function cropping_arrived() {
+	  jQuery('#cropbox').Jcrop({
+	  	onChange: update_crop,
+	  	onSelect: update_crop,
+			aspectRatio: 1,
+			minSize: [100,100]
+		});
+	};
+	$(function () {
+	    $('.upload').fileUploadUI({
+	        uploadTable: $('.upload_files'),
+	        downloadTable: $('.download_files'),
+	        buildUploadRow: function (files, index) {
+	            var file = files[index];
+	            return $('<tr><td>' + file.name + '<\/td>' +
+	                    '<td class="file_upload_progress"><div><\/div><\/td>' +
+	                    '<td class="file_upload_cancel">' +
+	                    '<div class="ui-state-default ui-corner-all ui-state-hover" title="Cancel">' +
+	                    '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
+	                    '<\/div><\/td><\/tr>');
+	        },
+	        buildDownloadRow: function (file) {
+	            return $('<tr><td><img alt="Photo" width="40" src="' + file.pic_path + '">' + file.name + '<\/td><\/tr>');
+	        },
+					onComplete: function (event, files, index, xhr, handler) { 
+													$.ajax({
+														type: "GET",
+														url: "/remote/show_pic/",
+														success: function(data){
+															       cropping_arrived();
+														         }
+														});
+					}
+	    });
+	});
+</script>
+<% end %>
+
+<% [:info, :error].each do |key| %>
+  <% if flash[key] %>
+  <div class="<%= key %>" id="flash">
+    <%= flash[key] %>
+  </div>
+  <% end %>
+<% end %>
+
+<%= form_for @upload, :html => { :class => "upload", :multipart => true } do |f| %>
+		<%= f.file_field :picture %>
+	<div>Upload files</div>
+	
+<% end %>
+
+<table class="upload_files"></table>
+<table class="download_files"></table>
+<div id="show_pic"></div>
+<div id="show_crop"></div>
+
+
+<% @uploads.each do |upload| %>
+	<p><%= image_tag upload.picture.url(:thumb) %></p>
+<% end %>
+	
