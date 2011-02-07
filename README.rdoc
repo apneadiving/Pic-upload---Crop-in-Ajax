@@ -4,8 +4,6 @@ Using this great plugin: https://github.com/blueimp/jQuery-File-Upload
 
 Still needs error handling + delete picture.
 
-Demo here: http://jqupload.heroku.com
-
 == Branch Uploadify:
 
 Implementation of Uploadify in Rails3 + crop in Ajax.
