@@ -1,1 +1,0 @@
-var locale={code:"en",primary_code:"en",errors:{file_exceeds_max_size:"File is too big"},buttons:{destroy:"Delete",cancel:"Cancel"},dialogs:{confirm:{title:"Confirm delete",text:"Really delete the highlighted element?"}}};

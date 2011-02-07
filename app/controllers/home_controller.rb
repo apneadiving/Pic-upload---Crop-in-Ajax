@@ -1,5 +1,4 @@
-class HomeController < ApplicationController
-  
+class HomeController < ApplicationController  
   def index
     @upload  = Upload.new
     @uploads = Upload.all

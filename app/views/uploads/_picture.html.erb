@@ -2,8 +2,8 @@
   var adapter = <%= @adapter || 1 %>;
 	
 	function update_crop(coords) {
-		var rx = 100/coords.w;
-		var ry = 100/coords.h;
+		var rx = <%= Upload::PREVIEW_WIDTH %>/coords.w;
+		var ry = <%= Upload::PREVIEW_HEIGHT %>/coords.h;
 	
 	  $('#preview').css({
 	    width: Math.round(rx * <%= @width %> /adapter) + 'px',
@@ -17,8 +17,7 @@
 	  jQuery("#crop_h").val(Math.round(coords.h * adapter));
 	}
 </script>
-
-<%= image_tag @upload.picture.url(:original), :id => "cropbox", :class => "crop_pic" %>
+<%= custom_img_tag(@upload, @width, @height, "cropbox") %>
 
 <%= form_for @upload, :html => { :id => "crop_form"} do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
@@ -28,6 +27,6 @@
 <% end %>
 
 <h4>Preview:</h4>
-<div style="width:100px; height:100px; overflow:hidden">
-  <%= image_tag @upload.picture.url(:original), :id => "preview", :class => "crop_pic" %>
+<div style="width:<%= Upload::PREVIEW_WIDTH %>px; height:<%= Upload::PREVIEW_HEIGHT %>px; overflow:hidden">
+	<%= custom_img_tag(@upload, @width, @height, "preview") %>
 </div>
