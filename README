@@ -1,6 +1,15 @@
+== Branch Master:
+
+using: https://github.com/blueimp/jQuery-File-Upload
+
+Still in heavy dev, works fine only on Mac/chrome now.
+
+
+== Branch Uploadify:
+
 Implementation of Uploadify in Rails3 + crop in Ajax.
 
-To make it work:
+=== To make it work:
 - Run the seeds
 - visit http://localhost:3000/profiles/new
 
@@ -10,6 +19,6 @@ Uploadify works well for multiple files handling.
 
 You'll see that all pictures are stored (I didn't bothered to display them for now)
 
-More info:
+=== More info:
 I added 'ADD THIS' in the relevant files
 It's NOT a social app so user model is a fake as well as profile
