@@ -1,3 +1,5 @@
+= Rails 3 - Ajax Upload + Crop with Paperclip
+
 == Branch Master:
 
 Using this great plugin: https://github.com/blueimp/jQuery-File-Upload
