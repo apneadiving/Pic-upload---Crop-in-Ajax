@@ -6,3 +6,4 @@ gem 'nifty-generators'
 gem 'paperclip'
 gem "jquery-rails"
 gem 'ruby-debug'
+gem 'heroku'
