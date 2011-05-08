@@ -11,8 +11,11 @@ Still needs error handling + delete picture.
 Implementation of Uploadify in Rails3 + crop in Ajax.
 
 === To make it work:
-- Run the seeds
-- visit http://localhost:3000/profiles/new
+- clone it from github
+- install all dependencies with 'bundle install'
+- create the database with 'rake db:migrate'
+- fire it up with 'rails server'
+- visit http://localhost:3000/
 
 Uploadify works well for multiple files handling. 
 - in profiles/_form, set multi to true
